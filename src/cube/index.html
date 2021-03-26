@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转相册</title>
+    <style>
+    .front {
+        background-color: #105cb6;
+        transform: translateZ(100px);
+    }
+
+    .back {
+        background-color: #b62723;
+        transform: translateZ(-100px);
+    }
+
+    .top {
+        background-color: #8532b6;
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+
+    .bottom {
+        background-color: #b0b61e;
+        transform: rotateX(-90deg) translateZ(-100px);
+    }
+
+    .left {
+        background-color: #13b642;
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+
+    .right {
+        background-color: #0caeb6;
+        transform: rotateY(90deg) translateZ(100px);
+    }
+
+    .out-front {
+        background-color: #105cb6;
+        transform: translateZ(200px);
+    }
+
+    .out-back {
+        background-color: #b62723;
+        transform: translateZ(-200px);
+    }
+
+    .out-top {
+        background-color: #8532b6;
+        transform: rotateX(-90deg) translateZ(200px);
+    }
+
+    .out-bottom {
+        background-color: #b0b61e;
+        transform: rotateX(-90deg) translateZ(-200px);
+    }
+
+    .out-left {
+        background-color: #13b642;
+        transform: rotateY(-90deg) translateZ(200px);
+    }
+
+    .out-right {
+        background-color: #0caeb6;
+        transform: rotateY(90deg) translateZ(200px);
+    }
+
+    .parent {
+        animation: my_rotate 20s linear infinite;
+        transform-style: preserve-3d;
+        width: 100px;
+        height: 100px;
+    }
+
+    .grand {
+        transform: scale(0.5);
+    }
+
+    .grand:hover .out-front {
+        transform: translateZ(400px);
+    }
+
+    .grand:hover .out-back {
+        transform: translateZ(-400px);
+    }
+
+    .grand:hover .out-top {
+        transform: rotateX(-90deg) translateZ(400px);
+    }
+
+    .grand:hover .out-bottom {
+        transform: rotateX(-90deg) translateZ(-400px);
+    }
+
+    .grand:hover .out-left {
+        transform: rotateY(-90deg) translateZ(400px);
+    }
+
+    .grand:hover .out-right {
+        transform: rotateY(90deg) translateZ(400px);
+    }
+
+    .block {
+        position: absolute;
+        left: -100px;
+        top: -100px;
+        width: 200px;
+        height: 200px;
+        font-size: 3rem;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        line-height: 200px;
+        opacity: .7;
+    }
+
+    .out-block {
+        position: absolute;
+        left: -200px;
+        top: -200px;
+        width: 400px;
+        height: 400px;
+        font-size: 3rem;
+        color: #ffffff;
+        font-weight: bold;
+        text-align: center;
+        line-height: 400px;
+        opacity: .7;
+        transition: all 1s;
+    }
+
+    .flex {
+        display: flex;
+    }
+
+    .align-center {
+        align-items: center;
+    }
+
+    .justify-center {
+        justify-content: center;
+    }
+
+    .relative {
+        position: relative;
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .full-height {
+        height: 100%;
+    }
+
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+
+    @keyframes my_rotate {
+        0% {
+            transform: rotate3d(1, 2, 3, 0deg) rotate3d(-1, 2, 1, 0deg) rotate3d(-1, 2, 1, 0deg);
+        }
+
+        20% {
+            transform: rotate3d(1, 2, 3, 72deg) rotate3d(-1, 2, 1, 72deg) rotate3d(-1, 2, 1, 72deg);
+        }
+
+        40% {
+            transform: rotate3d(1, 2, 3, 144deg) rotate3d(-1, 2, 1, 144deg) rotate3d(-1, 2, 1, 144deg);
+        }
+
+        60% {
+            transform: rotate3d(1, 2, 3, 216deg) rotate3d(-1, 2, 1, 216deg) rotate3d(-1, 2, 1, 216deg);
+        }
+
+        80% {
+            transform: rotate3d(1, 2, 3, 288deg) rotate3d(-1, 2, 1, 288deg) rotate3d(-1, 2, 1, 288deg);
+        }
+
+        100% {
+            transform: rotate3d(1, 2, 3, 360deg) rotate3d(-1, 2, 1, 360deg) rotate3d(-1, 2, 1, 360deg);
+        }
+    }
+    </style>
+</head>
+<body>
+<div class="relative flex align-center justify-center full-height grand">
+    <div class="relative parent">
+        <div class="front block">1</div>
+        <div class="back block">2</div>
+        <div class="top block">3</div>
+        <div class="bottom block">4</div>
+        <div class="right block">5</div>
+        <div class="left block">6</div>
+
+        <div class="out-front out-block">A</div>
+        <div class="out-back out-block">B</div>
+        <div class="out-top out-block">C</div>
+        <div class="out-bottom out-block">D</div>
+        <div class="out-right out-block">E</div>
+        <div class="out-left out-block">F</div>
+    </div>
+</div>
+</body>
+</html>
